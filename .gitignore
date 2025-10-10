@@ -1,0 +1,20 @@
+# CMake generated files
+build/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# Other common build artifacts
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# macOS specific (if applicable)
+.DS_Store
+
+# IDE specific (if applicable, e.g., CLion)
+.idea/
+cmake-build-*/
