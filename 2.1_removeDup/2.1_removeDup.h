@@ -1,7 +1,10 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <assert.h>
 #include <limits.h>
+
+#define ARR_SIZE 100
 /* Dynamic linked list, implemented as a stack */
 
 typedef struct Node {
@@ -19,6 +22,7 @@ void push(Stack* s, int value);
 int pop(Stack* s);
 void destroyStack(Stack* s);
 bool deleteNode(Stack* s, Node* n);
+void removeDup(Stack* s);
 bool insertAfter(Stack* s, Node* n, int data);
 
 

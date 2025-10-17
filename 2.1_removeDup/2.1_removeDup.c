@@ -21,7 +21,6 @@ Stack* makeStack(void) {
     return s;
 }
 
-
 void push(Stack* s, int value) {
     assert(s);
     Node* node = makeNode(value);
@@ -47,6 +46,7 @@ int pop(Stack* s) {
         return value;
     }
 }
+
 void destroyStack(Stack* s) {
     assert(s);
     while (pop(s) != INT_MIN) {
@@ -54,6 +54,7 @@ void destroyStack(Stack* s) {
     }
     free(s);
 }
+
 bool deleteNode(Stack* s, Node* n) {
     assert(s);
     assert(n);
@@ -76,5 +77,27 @@ bool deleteNode(Stack* s, Node* n) {
             }
         }
         return false;
+    }
+}
+
+void removeDup(Stack* s) {
+    assert(s);
+    if (!s->head->next) {
+        fprintf(stderr, "Only one node, no duplicates.\n");
+    }else {
+        char arr[ARR_SIZE] = {0};
+        Node* start = s->head;
+        while(start) {
+            int index = start->value;
+            if (arr[index] == 0) {
+                arr[index] +=1;
+                start = start->next;
+            }else {
+                Node* remove = start;
+                Node* tmp = remove->next;
+                deleteNode(s, remove);
+                start = tmp;
+            }
+        }
     }
 }

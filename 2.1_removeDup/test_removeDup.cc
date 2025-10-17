@@ -29,6 +29,37 @@ TEST(RemoveDup, TestMakeStack) {
 
     EXPECT_EQ(s->head->next->next->value, 5);
 
+
+    removeDup(s);
+
+    EXPECT_EQ(s->head->value, 7);
+    EXPECT_EQ(s->head->next->value, 5);
+
+    destroyStack(s);
+
+}
+
+TEST(RemoveDup, TestRemoveDup) {
+    Stack* s = makeStack();
+    assert(s);
+
+    for (int i = 0; i < 9; i++) {
+        push(s, i);
+    }
+
+    push(s, 7);
+    push(s, 2);
+
+    removeDup(s);
+
+    // print the nodes
+    Node* tmp = s->head;
+    while(tmp) {
+
+        printf("%d ", tmp->value);
+        tmp = tmp->next;
+    }
+
     destroyStack(s);
 
 }
